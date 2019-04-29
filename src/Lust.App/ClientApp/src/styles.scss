@@ -1,0 +1,53 @@
+// Import Fuse main library
+@import "@fuse/scss/core";
+
+
+.customize-radio {
+  font-size: 16px;
+  font-weight: 300;
+  width: 100%;
+  min-height: 120px;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(0,0,0,.1);
+  transition: .5s;
+  color: #f75169;
+}
+
+.customize-radio-input {
+  position: absolute;
+  opacity: 0;
+}
+
+.customize-radio-input:checked + label {
+  color: white;
+  background: linear-gradient(135deg,#f8a31f, #f75169);
+  transition: .5s;
+}
+
+.customize-radio-input:checked + label > div .normal {
+  display: none;
+}
+
+.customize-radio-input:checked + label > div .clicked {
+  display: block;
+  margin: auto;
+}
+
+
+
+.mg-large-t {
+  margin-top: 30px;
+}
+
+.inactive {
+  display: none;
+}
+
+
+.customize-radio-container {
+  display: flex;
+  flex-flow: column;
+  margin: 10px;
+  width: 100%;
+}

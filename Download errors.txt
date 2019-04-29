@@ -1,0 +1,50 @@
+﻿Sorry, there was a problem downloading some files from OneDrive. Please try again.
+
+db.lock - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21502315&action=Download
+
+ImageSharp.Drawing.csproj.CopyComplete - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21616942&action=Download
+
+confirm-dialog.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21451670&action=Download
+
+demo-content.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21452182&action=Download
+
+demo-sidenav.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21452185&action=Download
+
+termos-e-condicoes.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21452204&action=Download
+
+assinatura.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21451737&action=Download
+
+assinaturas.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21451740&action=Download
+
+contato.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21451754&action=Download
+
+contatos.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21451758&action=Download
+
+dashboard.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21451762&action=Download
+
+valida-foto.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21451783&action=Download
+
+valida-perfil.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21451787&action=Download
+
+valida-video.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21451791&action=Download
+
+sample.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21452216&action=Download
+
+oferecer.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21451854&action=Download
+
+gerenciar-perfil.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21451865&action=Download
+
+show-erros-dialog.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21452224&action=Download
+
+caracteristica.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21451886&action=Download
+
+welcome.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21451898&action=Download
+
+app.component.scss - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21451183&action=Download
+
+.gitkeep - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21451194&action=Download
+
+Lust.Infra.Files.csproj.CopyComplete - https://onedrive.live.com/?cid=cf4a6135028b5c8f&id=CF4A6135028B5C8F%21616920&action=Download
+
+
+

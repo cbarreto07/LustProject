@@ -1,0 +1,100 @@
+@import "src/@fuse/scss/fuse";
+
+:host {
+
+    .separator {
+        font-size: 15px;
+        font-weight: 600;
+        margin: 24px auto;
+        position: relative;
+        overflow: hidden;
+        width: 100px;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.54);
+
+        .text {
+            display: inline-flex;
+            position: relative;
+            padding: 0 8px;
+            z-index: 9999;
+
+            &:before, &:after {
+                content: '';
+                display: block;
+                width: 30px;
+                position: absolute;
+                top: 10px;
+                border-top: 1px solid rgba(0, 0, 0, 0.12);
+            }
+
+            &:before {
+                right: 100%;
+            }
+
+            &:after {
+                left: 100%;
+            }
+        }
+    }
+
+    button {
+        &.google, &.facebook, &.twitter, &.linkedin, &.github, &.windows, &.paypal, &.yahoo, &.stack-exchange, &.amazon {
+            width: 70%;
+            text-transform: none;
+            color: #FFFFFF;
+            font-size: 13px;
+            margin-bottom: 8px;
+            @include media-breakpoint('xs') {
+                width: 60%;
+            }
+
+            mat-icon {
+                color: #FFFFFF;
+                margin: 0 8px 0 0;
+            }
+        }
+
+        &.google {
+            background-color: #D73D32;
+        }
+
+        &.facebook {
+            background-color: rgb(63, 92, 154);
+        }
+
+
+        &.twitter {
+            background: #55ACEE;
+        }
+
+
+        &.linkedin {
+            background: #007bb5;
+        }
+
+        &.github {
+            background: #000000;
+        }
+
+        &.windows {
+            background: #2672EC;
+        }
+
+        &.paypal {
+            background: #0079c1;
+        }
+
+        &.yahoo {
+            background: #4c16c0;
+        }
+
+        &.stack-exchange {
+            background: #1f5296;
+        }
+
+        &.amazon {
+            background: #f5d993;
+        }
+    }
+}
+

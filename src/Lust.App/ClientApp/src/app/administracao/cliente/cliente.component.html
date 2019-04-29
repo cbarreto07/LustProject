@@ -1,0 +1,165 @@
+<div id="cliente" class="page-layout carded fullwidth" fusePerfectScrollbar>
+  <!-- TOP BACKGROUND -->
+  <div class="top-bg lust-500-bg"></div>
+  <!-- / TOP BACKGROUND -->
+  <!-- CENTER -->
+  <div class="center">
+    <!-- HEADER -->
+    <div class="header white-fg" fxLayout="row" fxLayoutAlign="space-between center">
+      <!-- APP TITLE -->
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <button mat-icon-button class="mr-0 mr-sm-16" [routerLink]="'../clientes'">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        
+        <div fxLayout="column" fxLayoutAlign="start start"
+             *fuseIfOnDom [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+          <div class="h2" *ngIf="pageType ==='edit'">
+            {{cliente.nome}}
+          </div>
+          <div class="h2" *ngIf="pageType ==='new'">
+            Novo Cliente
+          </div>
+          <div class="subtitle secondary-text">
+            <span>Cliente detalhe</span>
+          </div>
+        </div>
+      </div>
+      <!-- / APP TITLE -->
+      <button mat-raised-button
+              class="save-product-button mat-white-bg"
+              [disabled]="clienteForm.invalid"
+              *ngIf="pageType ==='new'" (click)="addCliente()">
+        <span>ADICIONAR</span>
+      </button>
+      <button mat-raised-button
+              class="save-product-button mat-white-bg"
+              [disabled]="clienteForm.invalid || clienteForm.pristine"
+              *ngIf="pageType ==='edit'" (click)="saveCliente()">
+        <span>SALVAR</span>
+      </button>
+    </div>
+    <!-- / HEADER -->
+    <!-- CONTENT CARD -->
+    <div class="content-card mat-white-bg">
+      <!-- CONTENT -->
+      <div class="content">
+        <form name="clienteForm" [formGroup]="clienteForm" class="cliente w-100-p" fxLayout="column" fxFlex>
+          <mat-tab-group>
+            <mat-tab label="Básico">
+              <div class="tab-content p-24" fusePerfectScrollbar>
+
+                <mat-form-field class="w-100-p">
+                  <input matInput name="nome" formControlName="nome" placeholder="Nome" required>
+                </mat-form-field>
+
+                <mat-form-field class="w-25-p">
+                  <input matInput name="email" formControlName="email" placeholder="Email" required>
+                </mat-form-field>
+
+                <mat-form-field class="w-25-p">
+                  <mat-select placeholder="Gênero" formControlName="genero">
+                    <mat-option *ngFor="let genero of generos" [value]="genero.value">
+                      {{ genero.viewValue }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="w-25-p">
+                  <input matInput [max]="maxDate" [matDatepicker]="dp3" placeholder="Data de nascimento" formControlName="dataNascimento">
+                  <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+                  <mat-datepicker touchUi="true" #dp3 disabled="false"></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field class="w-25-p">
+                  <input matInput name="celular" formControlName="celular" placeholder="Celular">
+                </mat-form-field>
+
+                <mat-form-field class="w-25-p">
+                  <input matInput name="cpf" formControlName="cpf" placeholder="CPF">
+                </mat-form-field>
+
+                <mat-form-field class="w-25-p">
+                  <input matInput name="cep" formControlName="cep" placeholder="CEP">
+                </mat-form-field>
+
+                <div class="py-16 w-100-p">
+                  <mat-checkbox formControlName="estaOferecendo">Está oferecendo</mat-checkbox>
+                  <mat-checkbox formControlName="estaDesfrutando" class="pl-8">Está desfrutando</mat-checkbox>
+                </div>
+
+                <mat-form-field class="w-100-p">
+                  <textarea matInput name="curtaDescricao" formControlName="curtaDescricao" placeholder="Curta descrição" rows="5"></textarea>
+                </mat-form-field>
+
+                <mat-form-field class="w-100-p ">
+                  <textarea matInput name="longaDescricao" formControlName="longaDescricao" placeholder="Longa descrição" rows="5"></textarea>
+                </mat-form-field>
+
+
+              </div>
+            </mat-tab>
+            <mat-tab label="Últimas posição">
+              <div class="tab-content p-24" fusePerfectScrollbar>
+                <agm-map class="w-100-p  h-400" [zoom]="15"
+                         [latitude]="cliente.latitude"
+                         [longitude]="cliente.longitude">
+                  <agm-marker [latitude]="cliente.latitude"
+                              [longitude]="cliente.longitude">
+                  </agm-marker>
+                </agm-map>
+              </div>
+            </mat-tab>
+            <mat-tab label="Preferências">
+              <div class="tab-content p-24" fusePerfectScrollbar>
+               
+
+              </div>
+            </mat-tab>
+            <mat-tab label="Caracteríticas">
+              <div class="tab-content p-24" fusePerfectScrollbar>
+              </div>
+            </mat-tab>
+            <mat-tab label="Fotos">
+              <div class="tab-content p-24" fusePerfectScrollbar>
+                <div fxLayout="row wrap" fxLayoutAlign="start start">
+                  <div class="card" fxFlex *ngFor="let foto of cliente.fotos">
+                    <div class="card-preview">
+                      <div class="fuse-card">
+                        <img guidImage.thumbnail.16x9="{{foto.id}}" class="w-100-p">
+
+                        <div class="p-16 pt-0 line-height-1.75">
+                          {{foto.descricao}}
+                        </div>                       
+                        <div class="p-8 pt-0" fxLayout="row" fxLayoutAlign="start center">
+                          <button mat-button color="accent">VER</button>
+                          <button mat-button color="accent">{{foto.statusAnalise | statusAnalise}}</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </mat-tab>
+            <mat-tab label="Assinaturas">
+              <div class="tab-content p-24" fusePerfectScrollbar>
+              </div>
+            </mat-tab>
+            <mat-tab label="Avaliações feitas">
+              <div class="tab-content p-24" fusePerfectScrollbar>
+              </div>
+            </mat-tab>
+            <mat-tab label="Avaliações recebidas">
+              <div class="tab-content p-24" fusePerfectScrollbar>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </form>
+      </div>
+      <!-- / CONTENT -->
+    </div>
+    <!-- / CONTENT CARD -->
+  </div>
+  <!-- / CENTER -->
+</div>

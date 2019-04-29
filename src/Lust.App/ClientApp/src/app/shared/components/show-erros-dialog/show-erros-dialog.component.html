@@ -1,0 +1,34 @@
+
+<h2 mat-dialog-title *ngIf="erros.length<=1">Ocorreu um erro</h2>
+<h2 mat-dialog-title *ngIf="erros.length>1">Ocorreram erros</h2>
+<mat-dialog-content>
+
+  <mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let erro of erros">{{erro.field}}: {{erro.message}}</mat-list-item>    
+  </mat-list>
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>OK</button>
+</mat-dialog-actions>
+
+<!--
+<h2 mat-dialog-title *ngIf="keys.length<=1">Ocorreu um erro</h2>
+<h2 mat-dialog-title *ngIf="keys.length>1">Ocorreram erros</h2>
+<mat-dialog-content>
+
+  <ol>
+    <li *ngFor="let key of keys">
+      {{key}}
+      <ul>
+        <li *ngFor="let erro of _erros[key]">{{erro}}</li>
+      </ul>
+    </li>
+  </ol>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>OK</button>
+</mat-dialog-actions>
+    -->

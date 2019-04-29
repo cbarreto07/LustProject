@@ -1,0 +1,58 @@
+﻿<div id="tipodeservico" class="page-layout simple" fusePerfectScrollbar>
+    <!-- HEADER -->
+    <div class="header mat-lust-500-bg p-16 p-sm-24" fxLayout="column" fxLayoutAlign="center center">
+        <div class="hero-text mb-32">
+            <h1>Bem-Vindo ao</h1>
+            <div class="logo" *fuseIfOnDom [@animate]="{value:'*',params:{scale:'0.2'}}">
+                <img src="assets/img/logotipo/logo.svg">
+            </div>
+            <h3>
+                Selecione uma das opções abaixo para comecar a ter acesso a plataforma.
+            </h3>
+        </div>
+    </div>
+    <!-- / HEADER -->
+    <!-- CONTENT -->
+    <form name="opcaoForm" [formGroup]="opcaoForm" novalidate (ngSubmit)="prosseguir()">
+        <div class="content p-24">
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" fxLayoutAlign.xs="start stretch">
+
+                
+                    <div class="customize-radio-container">
+                        <input type="radio" id="offer-service" class="customize-radio-input" name="opcao" formControlName="opcao" value="oferecer">
+                        <label class="customize-radio text-center" for="offer-service">
+                            Quero oferecer <br> meus servicos
+                            <div class="mg-large-t">
+                                <img src="assets/img/icons/butt.png" width="80px" class="normal" alt="">
+                                <img src="assets/img/icons/butt-click.png" width="80px" class="clicked inactive" alt="">
+                            </div>
+                        </label>
+                    </div>
+                
+
+                
+                    <div class="customize-radio-container">
+                        <input type="radio" id="recive-service" class="customize-radio-input" name="opcao"  formControlName="opcao" value="desfrutar">
+                        <label class="customize-radio text-center" for="recive-service">
+                            Quero desfrutar <br> dos servicos
+
+                            <div class="mg-large-t">
+                                <img src="assets/img/icons/sex.png" width="70px" class="normal" alt="">
+                                <img src="assets/img/icons/sex-click.png" width="70px" class="clicked inactive" alt="">
+                            </div>
+                        </label>
+                    </div>
+                
+
+            </div>
+
+            <div fxLayoutAlign="end end" class="avancar">
+                <button mat-raised-button class="mat-warn-bg " aria-label="Continuar">
+                    Continuar
+                </button>
+            </div>
+
+        </div>
+        <!-- / CONTENT -->
+        </form>
+</div>

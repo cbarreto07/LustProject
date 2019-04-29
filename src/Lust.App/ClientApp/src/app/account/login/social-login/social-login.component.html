@@ -1,0 +1,11 @@
+<div class="separator">
+    <span class="text">OU</span>
+</div>
+<div fxLayout="column" fxLayoutAlign="start center">    
+  <button mat-raised-button
+          [ngClass]="loginCss(login.loginProvider)"
+          *ngFor="let login of socialLogins"
+          (click)="redirect(login.loginProvider)">
+    Entrar com {{login.providerDisplayName}}
+  </button>
+</div>

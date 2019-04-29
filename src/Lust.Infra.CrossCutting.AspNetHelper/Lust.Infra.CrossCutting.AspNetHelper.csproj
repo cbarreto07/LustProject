@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+
+    <PackageReference Include="microsoft.aspnetcore.hosting.abstractions" Version="2.1.0-rc1-final" />
+    <PackageReference Include="microsoft.aspnetcore.http.abstractions" Version="2.1.0-rc1-final" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.1.0-rc1-final" />
+    <PackageReference Include="microsoft.aspnetcore.mvc.abstractions" Version="2.1.0-rc1-final" />
+    <PackageReference Include="microsoft.aspnetcore.mvc.viewfeatures" Version="2.1.0-rc1-final" />
+    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.11" />
+    <PackageReference Include="newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.0-rc1-final" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lust.Infra.CrossCutting.Identity\Lust.Infra.CrossCutting.Identity.csproj" />
+  </ItemGroup>
+  
+</Project>

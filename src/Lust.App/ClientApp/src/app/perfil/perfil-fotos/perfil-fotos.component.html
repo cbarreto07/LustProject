@@ -1,0 +1,8 @@
+<div id="fotos" class="p-24">
+  <div class="period-media" fxLayout="row wrap">
+    <div class="media" *ngFor="let foto of fotos" (click)="visualizar(foto)">
+      <img class="preview" guidImage.thumbnail.1x1="{{foto.id}}" defaultImage="{{foto.Thumbnail_1x1}}" title="{{foto.descricao}}">
+      <div class="title">{{foto.descricao}}</div>
+    </div>
+  </div>
+</div>

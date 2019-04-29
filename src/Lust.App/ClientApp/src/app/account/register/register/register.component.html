@@ -1,0 +1,99 @@
+﻿<div id="register" fxLayout="row" fxLayoutAlign="start">
+    <div id="register-intro" fxFlex fxHide fxShow.gt-xs>
+        <div class="logo" *fuseIfOnDom [@animate]="{value:'*',params:{scale:'0.2'}}">
+            <img src="assets/img/icons/icon.svg">
+        </div>
+        <div class="title" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'50ms',y:'25px'}}">
+            LUST
+        </div>
+        <div class="description" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'100ms',y:'25px'}}">
+            Ofereça ou busque serviços na plataforma com maior facilidade.
+        </div>
+    </div>
+    <div id="register-form-wrapper" fusePerfectScrollbar *fuseIfOnDom
+         [@animate]="{value:'*',params:{delay:'300ms',x:'100%'}}">
+        <div id="register-form">
+            <div class="logo" fxHide.gt-xs>
+                <span>L</span>
+            </div>
+            <div class="title">CRIAR SUA CONTA</div>
+            
+            
+
+            <form name="registerForm" [formGroup]="registerForm" novalidate (ngSubmit)="registrar()">
+                <mat-form-field>
+                    <input matInput placeholder="Nome" formControlName="nome">
+                    <mat-error *ngFor="let msg of displayMessage.nome">
+                        {{msg}}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Email" formControlName="email">
+                    <mat-error *ngFor="let msg of displayMessage.email">
+                        {{msg}}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="CPF" formControlName="cpf">
+                    <mat-error *ngFor="let msg of displayMessage.cpf">
+                        {{msg}}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Celular" formControlName="celular">
+                    <mat-error *ngFor="let msg of displayMessage.celular">
+                        {{msg}}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Cep" formControlName="cep">
+                    <mat-error *ngFor="let msg of displayMessage.cep">
+                        {{msg}}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput [max]="maxDate" [matDatepicker]="dp3" placeholder="Data de nascimento" formControlName="dataNascimento">
+                    <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi="true" #dp3 disabled="false"></mat-datepicker>
+                    <mat-error *ngFor="let msg of displayMessage.dataNascimento">
+                        {{msg}}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="password" placeholder="Senha" formControlName="password">
+                    <mat-error *ngFor="let msg of displayMessage.password">
+                        {{msg}}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="password" placeholder="Senha (repita)" formControlName="passwordConfirm">
+                    <mat-error *ngFor="let msg of displayMessage.passwordConfirm">
+                        {{msg}}
+                    </mat-error>
+                </mat-form-field>
+                <div class="fuse-card mat-warn-bg" *ngIf="errors.length>0">
+                    <div class="p-16">
+                        <div class="h1">Ocorreram erros</div>
+                    </div>
+                    <div class="p-16 pt-0 line-height-1.75" *ngFor="let error of errors">
+                        {{error}}
+                    </div>
+                </div>
+                <div class="terms" fxLayout="row" fxLayoutAlign="center center">
+                    <mat-checkbox name="terms" aria-label="Accept" required formControlName="aceito">
+                        <span>Aceito</span>
+                    </mat-checkbox>
+                    <a (click)="openDialog()">os termos e condições</a>
+                </div>
+                <button mat-raised-button color="accent" class="submit-button" aria-label="CRIAR SUA CONTA"
+                        [disabled]="registerForm.invalid || !registerForm.value.aceito">
+                    CRIAR SUA CONTA
+                </button>
+            </form>
+            <div class="register" fxLayout="column" fxLayoutAlign="center center">
+                <span class="text">Já possui uma conta?</span>
+                <a class="link" [routerLink]="'/login'">Login</a>
+            </div>
+        </div>
+    </div>
+</div>

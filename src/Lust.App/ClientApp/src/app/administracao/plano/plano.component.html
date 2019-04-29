@@ -1,0 +1,117 @@
+<div id="product" class="page-layout carded fullwidth" fusePerfectScrollbar>
+  <!-- TOP BACKGROUND -->
+  <div class="top-bg lust-500-bg"></div>
+  <!-- / TOP BACKGROUND -->
+  <!-- CENTER -->
+  <div class="center">
+    <!-- HEADER -->
+    <div class="header white-fg" fxLayout="row" fxLayoutAlign="space-between center">
+      <!-- APP TITLE -->
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <button mat-icon-button class="mr-0 mr-sm-16" [routerLink]="'../../planos'">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+
+        <div fxLayout="column" fxLayoutAlign="start start"
+             *fuseIfOnDom [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+          <div class="h2" *ngIf="pageType ==='edit'">
+            {{plano.titulo}}
+          </div>
+          <div class="h2" *ngIf="pageType ==='new'">
+            Novo Plano
+          </div>
+          <div class="subtitle secondary-text">
+            <span>Plano detalhe</span>
+          </div>
+        </div>
+      </div>
+      <!-- / APP TITLE -->
+      <button mat-raised-button
+              class="save-product-button mat-white-bg"
+              [disabled]="planoForm.invalid"
+              *ngIf="pageType ==='new'" (click)="addPlano()">
+        <span>ADICIONAR</span>
+      </button>
+      <button mat-raised-button
+              class="save-product-button mat-white-bg"
+              [disabled]="planoForm.invalid || planoForm.pristine"
+              *ngIf="pageType ==='edit'" (click)="savePlano()">
+        <span>SALVAR</span>
+      </button>
+    </div>
+    <!-- / HEADER -->
+    <!-- CONTENT CARD -->
+    <div class="content-card mat-white-bg">
+      <!-- CONTENT -->
+      <div class="content">
+        <form name="planoForm" [formGroup]="planoForm" novalidate class="plano w-100-p" fxLayout="column" fxFlex>
+          <mat-tab-group>
+            <mat-tab label="Principal">
+              <div class="tab-content p-24" fusePerfectScrollbar>
+
+                <mat-form-field class="w-100-p">
+                  <input matInput name="titulo" formControlName="titulo" placeholder="Título">
+                  <mat-hint align="end">{{planoForm.controls.titulo.value?.length || 0}}/100</mat-hint>
+                  <mat-error *ngFor="let msg of displayMessage.titulo">
+                    {{msg}}
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="w-100-p">
+                  <input matInput name="subTitulo" formControlName="subTitulo" placeholder="Subtítulo">
+                  <mat-error *ngFor="let msg of displayMessage.subTitulo">
+                    {{msg}}
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field class="w-100-p">
+                  <textarea matInput name="descricao" formControlName="descricao" placeholder="Descrição"></textarea>
+                  <mat-error *ngFor="let msg of displayMessage.descricao">
+                    {{msg}}
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="w-25-p">
+                  <mat-select placeholder="Escolha" name="destinado" formControlName="destinado">
+                    <mat-option value="0">Para quem oferece</mat-option>
+                    <mat-option value="1">Para quem desfruta</mat-option>
+                  </mat-select>
+                  <mat-error *ngFor="let msg of displayMessage.destinado">
+                    {{msg}}
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="w-25-p">
+                  <input matInput type="number" name="ordem" formControlName="ordem" placeholder="Ordem">
+                  <mat-error *ngFor="let msg of displayMessage.ordem">
+                    {{msg}}
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="w-25-p">
+                  <input matInput type="number" name="quantidadeMeses" formControlName="quantidadeMeses" placeholder="Quantidade de meses">
+                  <mat-error *ngFor="let msg of displayMessage.quantidadeMeses">
+                    {{msg}}
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="w-25-p">
+                  <input matInput type="number" name="valor" formControlName="valor" placeholder="Valor">
+                  <span matPrefix>R$&nbsp;</span>
+                  <mat-error *ngFor="let msg of displayMessage.valor">
+                    {{msg}}
+                  </mat-error>
+                </mat-form-field>
+
+
+              </div>
+            </mat-tab>
+           
+          </mat-tab-group>
+        </form>
+      </div>
+      <!-- / CONTENT -->
+    </div>
+    <!-- / CONTENT CARD -->
+  </div>
+  <!-- / CENTER -->
+</div>

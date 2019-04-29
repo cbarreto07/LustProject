@@ -1,0 +1,141 @@
+﻿<div id="preferencia" class="page-layout carded fullwidth single-scroll" fusePerfectScrollbar>
+    <!-- TOP BACKGROUND -->
+    <div class="top-bg mat-lust-500-bg"></div>
+    <!-- / TOP BACKGROUND -->
+    <!-- CENTER -->
+    <div class="center">
+        <!-- HEADER -->
+        <div class="header white-fg" fxLayout="row" fxLayoutAlign="space-between center">
+            <!-- APP TITLE -->
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <button class="mr-0 mr-sm-16" mat-icon-button [routerLink]="'/quero-desfrutar'">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+                
+                <mat-icon class="product-image mr-8 mr-sm-16" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">sd_card</mat-icon>
+                <div fxLayout="column" fxLayoutAlign="start start"
+                     *fuseIfOnDom [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                    <div class="h2">
+                        Minhas preferências
+                    </div>                    
+                    <div class="subtitle secondary-text">
+                        <span>Personalize para encontrar exatamente o que você quer</span>
+                    </div>
+                </div>
+            </div>
+            <!-- / APP TITLE -->
+            
+            <button mat-raised-button
+                    class=" mat-white-bg mt-16 mt-sm-0"
+                    [disabled]="preferenciaForm.invalid || preferenciaForm.pristine"
+                     (click)="save()">
+                <span>SALVAR</span>
+            </button>
+        </div>
+        <!-- / HEADER -->
+        <!-- CONTENT CARD -->
+        <div class="content-card mat-white-bg">
+            <!-- CONTENT -->
+            <div class="content" fusePerfectScrollbar>
+                <form name="preferenciaForm" [formGroup]="preferenciaForm" novalidate class=" w-100-p p-24" fxLayout="column" fxLayoutAlign="start stretch">
+
+
+                    <h2>Gênero:</h2>
+                    <p>
+                        Selecione quantas opções quiser
+                    </p>
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" fxLayoutAlign.xs="start stretch" class="mb-16">
+
+                        <div class="customize-radio-container">
+                            <input type="checkbox" id="mulher" class="customize-radio-input" name="mulher" formControlName="mulher">
+                            <label class="customize-radio text-center" for="mulher">
+
+                                <div class="mg-large-t">
+                                    <img src="assets/img/icons/female.png" width="80px" class="normal" alt="">
+                                    <img src="assets/img/icons/female-click.png" width="80px" class="clicked inactive" alt="">
+                                </div>
+                                Mulher
+                            </label>
+                        </div>
+
+
+                        <div class="customize-radio-container">
+                            <input type="checkbox" id="homem" class="customize-radio-input" name="homem" formControlName="homem">
+                            <label class="customize-radio text-center" for="homem">
+
+                                <div class="mg-large-t">
+                                    <img src="assets/img/icons/male-gender.png" width="80px" class="normal" alt="">
+                                    <img src="assets/img/icons/male-gender-click.png" width="80px" class="clicked inactive" alt="">
+                                </div>
+                                Homem
+                            </label>
+                        </div>
+
+                        <div class="customize-radio-container">
+                            <input type="checkbox" id="trans" class="customize-radio-input" name="trans" formControlName="trans">
+                            <label class="customize-radio text-center" for="trans">
+
+                                <div class="mg-large-t">
+                                    <img src="assets/img/icons/sign.png" width="80px" class="normal" alt="">
+                                    <img src="assets/img/icons/sign-click.png" width="80px" class="clicked inactive" alt="">
+                                </div>
+                                Trans
+                            </label>
+                        </div>
+
+                        <div class="customize-radio-container">
+                            <input type="checkbox" id="casal" class="customize-radio-input" name="casal" formControlName="casal">
+                            <label class="customize-radio text-center" for="casal">
+
+                                <div class="mg-large-t">
+                                    <img src="assets/img/icons/gender.png" width="80px" class="normal" alt="">
+                                    <img src="assets/img/icons/gender-click.png" width="80px" class="clicked inactive" alt="">
+                                </div>
+                                Casal
+                            </label>
+                        </div>
+
+
+                    </div>
+
+                    <mat-divider class="my-16"></mat-divider>
+
+                    <h2>Idade:<small> entre {{preferenciaForm.controls.idade.value[0]}} e {{preferenciaForm.controls.idade.value[1]}}  anos </small></h2>
+                    
+                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                        <label fxFlex="100px" class="text-center">18</label>
+                        <nouislider [connect]="true" [min]="18" [max]="65" [step]="1" [formControl]="preferenciaForm.controls.idade" fxFlex></nouislider>
+                        <label fxFlex="100px" class="text-center">65</label>
+                    </div>
+
+                    <mat-divider class="my-16"></mat-divider>
+
+                    <h2>Distância:<small>  até {{preferenciaForm.controls.distancia.value}} km </small></h2>
+                    
+                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                        <label fxFlex="100px" class="text-center">1km</label>
+                        <nouislider [connect]="false" [min]="1" [max]="150" [step]="1" [formControl]="preferenciaForm.controls.distancia" fxFlex></nouislider>
+                        <label fxFlex="100px" class="text-center">150km</label>
+                    </div>
+
+                    <mat-divider class="my-16"></mat-divider>
+
+                    <h2>Preço:<small> Entre R${{preferenciaForm.controls.preco.value[0] | number:'1.2-3' }} e R${{preferenciaForm.controls.preco.value[1]| number:'1.2-3'}}</small></h2>
+                    
+                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                        <label fxFlex="100px" class="text-center">R$0</label>
+                        <nouislider [connect]="true" [min]="0" [max]="5000" [step]="10" [formControl]="preferenciaForm.controls.preco" fxFlex></nouislider>
+                        <label  fxFlex="100px" class="text-center">R$5.000,00</label>
+                    </div>
+
+
+
+                    
+                </form>
+            </div>
+            <!-- / CONTENT -->
+        </div>
+        <!-- / CONTENT CARD -->
+    </div>
+    <!-- / CENTER -->
+</div>

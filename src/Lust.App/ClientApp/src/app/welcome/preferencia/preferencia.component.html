@@ -1,0 +1,131 @@
+﻿<div id="preferencias" class="page-layout simple fullwidth" fusePerfectScrollbar>
+    <!-- HEADER -->
+    <div class="header mat-lust-500-bg p-16 p-sm-24" fxLayout="column" fxLayoutAlign="center center">
+        <div class="hero-text mb-32">
+            <h1>
+                Hora de encontrar o melhor para você
+            </h1>
+            <h3>
+                Na Lust a pesquisa é totalmente personalizada para você encontrar as melhores delícias da região
+            </h3>
+        </div>
+    </div>
+    <!-- / HEADER -->
+    <!-- CONTENT -->
+
+    <div class="content p-24" >
+        <form name="preferenciaForm" [formGroup]="preferenciaForm" novalidate (ngSubmit)="prosseguir()" class="mat-white-bg mat-elevation-z4 p-24" fxLayout="column" fxLayoutAlign="start stretch">
+
+
+            <h2>Gênero:</h2>
+            <p>
+                Selecione quantas opções quiser
+            </p>
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" fxLayoutAlign.xs="start stretch" class="mb-16">
+
+                <div class="customize-radio-container">
+                    <input type="checkbox" id="mulher" class="customize-radio-input" name="mulher" formControlName="mulher">
+                    <label class="customize-radio text-center" for="mulher">
+
+                        <div class="mg-large-t">
+                            <img src="assets/img/icons/female.png" width="80px" class="normal" alt="">
+                            <img src="assets/img/icons/female-click.png" width="80px" class="clicked inactive" alt="">
+                        </div>
+                        Mulher
+                    </label>
+                </div>
+
+
+                <div class="customize-radio-container">
+                    <input type="checkbox" id="homem" class="customize-radio-input" name="homem" formControlName="homem">
+                    <label class="customize-radio text-center" for="homem">
+
+                        <div class="mg-large-t">
+                            <img src="assets/img/icons/male-gender.png" width="80px" class="normal" alt="">
+                            <img src="assets/img/icons/male-gender-click.png" width="80px" class="clicked inactive" alt="">
+                        </div>
+                        Homem
+                    </label>
+                </div>
+
+                <div class="customize-radio-container">
+                    <input type="checkbox" id="trans" class="customize-radio-input" name="trans" formControlName="trans">
+                    <label class="customize-radio text-center" for="trans">
+
+                        <div class="mg-large-t">
+                            <img src="assets/img/icons/sign.png" width="80px" class="normal" alt="">
+                            <img src="assets/img/icons/sign-click.png" width="80px" class="clicked inactive" alt="">
+                        </div>
+                        Trans
+                    </label>
+                </div>
+
+                <div class="customize-radio-container">
+                    <input type="checkbox" id="casal" class="customize-radio-input" name="casal" formControlName="casal">
+                    <label class="customize-radio text-center" for="casal">
+
+                        <div class="mg-large-t">
+                            <img src="assets/img/icons/gender.png" width="80px" class="normal" alt="">
+                            <img src="assets/img/icons/gender-click.png" width="80px" class="clicked inactive" alt="">
+                        </div>
+                        Casal
+                    </label>
+                </div>
+
+
+            </div>
+
+            <mat-divider class="my-16"></mat-divider>
+
+            <h2>Idade:<small> entre {{preferenciaForm.controls.idade.value[0]}} e {{preferenciaForm.controls.idade.value[1]}}  anos </small></h2>
+
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="py-8">
+                <label fxFlex="100px" class="text-center" fxHide.xs>18</label>
+                <nouislider [connect]="true" [min]="18" [max]="65" [step]="1" [formControl]="preferenciaForm.controls.idade" fxFlex></nouislider>
+                <label fxFlex="100px" class="text-center" fxHide.xs>65</label>
+            </div>
+            <small>
+                Mova o cursor abaixo para trocar a idade
+            </small>
+
+            <mat-divider class="my-16"></mat-divider>
+
+            <h2>Distância:<small>  até {{preferenciaForm.controls.distancia.value}} km </small></h2>
+
+
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="py-8">
+                <label fxFlex="100px" class="text-center" fxHide.xs>1km</label>
+                <nouislider [connect]="false" [min]="1" [max]="150" [step]="1" [formControl]="preferenciaForm.controls.distancia" fxFlex></nouislider>
+                <label fxFlex="100px" class="text-center" fxHide.xs>150km</label>
+            </div>
+            <small>
+                Mova o cursor abaixo para trocar a distância
+            </small>
+
+            <mat-divider class="my-16"></mat-divider>
+
+            <h2>Preço:<small> Entre R${{preferenciaForm.controls.preco.value[0] | number:'1.2-3' }} e R${{preferenciaForm.controls.preco.value[1]| number:'1.2-3'}}</small></h2>
+
+            
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="py-8">
+                <label fxFlex="100px" class="text-center" fxHide.xs>R$0</label>
+                <nouislider [connect]="true" [min]="0" [max]="5000" [step]="10" [formControl]="preferenciaForm.controls.preco" fxFlex></nouislider>
+                <label fxFlex="100px" class="text-center" fxHide.xs>R$5.000,00</label>
+            </div>
+            <small>
+                Até qual valor você precura?
+            </small>
+
+
+
+
+            <div fxLayoutAlign="end end" class="avancar">
+                <button mat-raised-button class="mat-warn-bg " aria-label="Criar meu filtro">
+                    Criar meu filtro
+                </button>
+            </div>
+        </form>
+    </div>
+    <!-- / CONTENT -->
+
+</div>

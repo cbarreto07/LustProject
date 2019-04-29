@@ -1,0 +1,71 @@
+<div id="product" class="page-layout carded fullwidth" fusePerfectScrollbar>
+  <!-- TOP BACKGROUND -->
+  <div class="top-bg lust-500-bg"></div>
+  <!-- / TOP BACKGROUND -->
+  <!-- CENTER -->
+  <div class="center">
+    <!-- HEADER -->
+    <div class="header white-fg" fxLayout="row" fxLayoutAlign="space-between center">
+      <!-- APP TITLE -->
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <button mat-icon-button class="mr-0 mr-sm-16" [routerLink]="'../../dotes'">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+
+        <div fxLayout="column" fxLayoutAlign="start start"
+             *fuseIfOnDom [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+          <div class="h2" *ngIf="pageType ==='edit'">
+            {{dote.descricao}}
+          </div>
+          <div class="h2" *ngIf="pageType ==='new'">
+            Novo Dote
+          </div>
+          <div class="subtitle secondary-text">
+            <span>Dote detalhe</span>
+          </div>
+        </div>
+      </div>
+      <!-- / APP TITLE -->
+      <button mat-raised-button
+              class="save-product-button mat-white-bg"
+              [disabled]="doteForm.invalid"
+              *ngIf="pageType ==='new'" (click)="addDote()">
+        <span>ADICIONAR</span>
+      </button>
+      <button mat-raised-button
+              class="save-product-button mat-white-bg"
+              [disabled]="doteForm.invalid || doteForm.pristine"
+              *ngIf="pageType ==='edit'" (click)="saveDote()">
+        <span>SALVAR</span>
+      </button>
+    </div>
+    <!-- / HEADER -->
+    <!-- CONTENT CARD -->
+    <div class="content-card mat-white-bg">
+      <!-- CONTENT -->
+      <div class="content">
+        <form name="doteForm" [formGroup]="doteForm" novalidate class="dote w-100-p" fxLayout="column" fxFlex>
+          <mat-tab-group>
+            <mat-tab label="Principal">
+              <div class="tab-content p-24" fusePerfectScrollbar>
+
+                <mat-form-field class="w-100-p">
+                  <input matInput name="descricao" formControlName="descricao" placeholder="Descrição">
+                  <mat-error *ngFor="let msg of displayMessage.descricao">
+                    {{msg}}
+                  </mat-error>
+                </mat-form-field>
+
+
+              </div>
+            </mat-tab>
+           
+          </mat-tab-group>
+        </form>
+      </div>
+      <!-- / CONTENT -->
+    </div>
+    <!-- / CONTENT CARD -->
+  </div>
+  <!-- / CENTER -->
+</div>

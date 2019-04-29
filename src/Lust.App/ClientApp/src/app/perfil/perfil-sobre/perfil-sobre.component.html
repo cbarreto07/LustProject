@@ -1,0 +1,159 @@
+
+<div id="sobre" class="p-24" fxLayout="column wrap">
+
+  <div class="info-line">
+    <div class="descricao"> {{perfil.longaDescricao}}</div>
+  </div>
+
+  <div fxLayout="column" >
+    <div class="info-line">
+      <label>Nota:</label>
+      <div class="info" fxLayout="row" fxLayoutAlign="start center">
+        <mat-star-rating [rating]="corrigeNota(perfil.nota)" [starCount]="5" [cssClass]="'amber-fg'"></mat-star-rating>
+        <div class="ml-4 secondary-text">{{corrigeNota(perfil.nota) | number: '1.1-1'}}</div>
+      </div>
+    </div>
+
+    <div class="info-line">
+      <label>Distância:</label>
+      <div class="info"> {{perfil.distancia | number:'1.0-1'}}Km</div>
+    </div>
+
+    <div class="info-line">
+      <label>Idade:</label>
+      <div class="info">{{perfil.idade}} anos</div>
+    </div>
+
+    <div class="info-line">
+      <div class="info" *ngIf="perfil.localProprio">Possui Local próprio</div>
+    </div>
+
+  </div>
+
+
+
+  <mat-divider class="py-16"></mat-divider>
+
+  <div class="info-line">
+    <div class="title">Dotes: </div>
+    <div fxFlexFill fxLayout="row wrap"  fxLayoutGap="10px grid" class="dotes">
+      <div *ngFor="let dote of perfil.dotes" fxFlex="25" fxLayout="row wrap" fxLayoutAlign="start center">
+        <mat-icon>local_offer</mat-icon>
+        <label>{{dote.descricao}}</label>
+      </div>
+    </div>
+
+  </div>
+
+  <mat-divider class="py-16"></mat-divider>
+
+  <div class="info-line">
+    <div class="title">Valores: </div>
+
+    <div fxLayout="row wrap" fxLayoutAlign="start center">
+      <div class="fuse-card preco" fxLayout="column" fxLayoutAlign="center center">
+        <mat-icon class="icon">access_time</mat-icon>
+        <div class="h2">30min</div>
+        <div class="h1 text-bold">R${{perfil.valor30min | number:'1.2-3'}}</div>
+      </div>
+      <div class="fuse-card preco" fxLayout="column" fxLayoutAlign="center center">
+        <mat-icon class="icon">access_time</mat-icon>
+        <div class="h2">1h</div>
+        <div class="h1 text-bold">R${{perfil.valor1Hora | number:'1.2-3'}}</div>
+      </div>
+      <div class="fuse-card preco" fxLayout="column" fxLayoutAlign="center center">
+        <mat-icon class="icon">access_time</mat-icon>
+        <div class="h2">2h</div>
+        <div class="h1 text-bold">R${{perfil.valor2horas | number:'1.2-3'}}</div>
+      </div>
+
+      <div class="fuse-card preco" fxLayout="column" fxLayoutAlign="center center">
+        <mat-icon class="icon">brightness_3</mat-icon>
+        <div class="h2">Pernoite</div>
+        <div class="h1 text-bold">R${{perfil.valorPernoite | number:'1.2-3'}}</div>
+      </div>
+    </div>
+
+  </div>
+
+  <mat-divider class="py-16"></mat-divider>
+
+  <div class="info-line">
+    <div class="title">Notas: </div>
+    <div fxFlexFill fxLayout="row wrap" fxLayoutGap="48px grid">
+
+      <div class="info-line" fxFlex="50">
+        <div class="info" fxLayout="row" fxLayoutAlign="space-between center">
+          <label>Higiene</label>
+          <mat-star-rating [rating]="corrigeNota(perfil.notaHigiene)" [starCount]="5" [cssClass]="'amber-fg'"></mat-star-rating>
+        </div>
+      </div>
+
+      <div class="info-line" fxFlex="50">
+        <div class="info" fxLayout="row" fxLayoutAlign="space-between center">
+          <label>Prazer</label>
+          <mat-star-rating [rating]="corrigeNota(perfil.notaPrazer)" [starCount]="5" [cssClass]="'amber-fg'"></mat-star-rating>
+        </div>
+      </div>
+
+      <div class="info-line" fxFlex="50">
+        <div class="info" fxLayout="row" fxLayoutAlign="space-between center">
+          <label>Fidelidade às fotos</label>
+          <mat-star-rating [rating]="corrigeNota(perfil.notaFidelidadeAsFotos)" [starCount]="5" [cssClass]="'amber-fg'"></mat-star-rating>
+        </div>
+      </div>
+
+      <div class="info-line" fxFlex="50">
+        <div class="info" fxLayout="row" fxLayoutAlign="space-between center">
+          <label>Educação</label>
+          <mat-star-rating [rating]="corrigeNota(perfil.notaEducacao)" [starCount]="5" [cssClass]="'amber-fg'"></mat-star-rating>
+        </div>
+      </div>
+
+      <div class="info-line" fxFlex="50">
+        <div class="info" fxLayout="row" fxLayoutAlign="space-between center">
+          <label>Ambiente</label>
+          <mat-star-rating [rating]="corrigeNota(perfil.notaAmbiente)" [starCount]="5" [cssClass]="'amber-fg'"></mat-star-rating>
+        </div>
+      </div>
+
+      <div class="info-line" fxFlex="50">
+        <div class="info" fxLayout="row" fxLayoutAlign="space-between center">
+          <label>Pontualizadade</label>
+          <mat-star-rating [rating]="corrigeNota(perfil.notaPontualidade)" [starCount]="5" [cssClass]="'amber-fg'"></mat-star-rating>
+        </div>
+      </div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+  <mat-divider class="py-16"></mat-divider>
+
+  <div class="info-line">
+    <div class="title">Localização aproximada: </div>
+    <div class="info">
+
+      <agm-map class="w-100-p  h-400" [zoom]="16"
+               [latitude]="perfil.latitude"
+               [longitude]="perfil.longitude">
+        <agm-circle [latitude]="perfil.latitude" [longitude]="perfil.longitude"
+                    [radius]="150"
+                    [fillColor]="'red'"
+                    [circleDraggable]="false"
+                    [editable]="false">
+        </agm-circle>
+      </agm-map>
+
+    </div>
+
+  </div>
+
+</div>
+
+  

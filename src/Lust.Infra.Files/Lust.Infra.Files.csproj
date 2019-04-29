@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WindowsAzure.Storage" Version="9.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\3th party\SixLabors.ImageSharp\src\ImageSharp.Drawing\ImageSharp.Drawing.csproj" />
+    <ProjectReference Include="..\..\3th party\SixLabors.ImageSharp\src\ImageSharp\ImageSharp.csproj" />
+    <ProjectReference Include="..\Lust.Domain.Core\Lust.Domain.Core.csproj" />
+  </ItemGroup>
+
+</Project>

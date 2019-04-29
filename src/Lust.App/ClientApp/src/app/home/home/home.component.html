@@ -1,0 +1,51 @@
+
+    
+        
+            <div  id="container" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex >
+                <div fxFlex="50" class="mat-lust-500-bg" id="logo-container" fxHide fxShow.gt-xs>
+                    <div class="logo" *fuseIfOnDom>
+                        <img src="assets/img/logotipo/logo.svg">
+                    </div>
+                </div>
+                <div fxFlex="200px" class="mat-lust-500-bg" id="mini_logo-container" fxHide.gt-xs>                    
+                    <div class="logo" *fuseIfOnDom>
+                        <img src="assets/img/logotipo/logo.svg">
+                    </div>
+                </div>
+                <div fxFlex id="rightSide" fusePerfectScrollbar *fuseIfOnDom>
+                    <h1> Bem-Vindo ao <span class="mat-warm-fg">Lust</span></h1>
+                    <h4>Para navegar neste site você deve aceitar os seguintes termos</h4>
+                    <div>
+                        <table>
+                            <tr>
+                                <td><mat-icon>error</mat-icon></td>
+                                <td>Tenho mais de 18 anos;</td>
+                            </tr>
+                            <tr>
+                                <td><mat-icon>error</mat-icon></td>
+                                <td>Entendo que haverá conteúdo explícito nesta página destinado a adultos;</td>
+                            </tr>
+                            <tr>
+                                <td><mat-icon>error</mat-icon></td>
+                                <td>Este conteúdo não irá causar problemas ou incômodos a minha pessoa;</td>
+                            </tr>
+                            <tr>
+                                <td><mat-icon>error</mat-icon></td>
+                                <td>
+                                    Clicando em *Acessar* abaixo, eu concordo que os provedores de internet,
+                                    proprietários e fundadores da Lust não se encarregam da responsabilidade sobre este conteúdo
+                                    e o uso do mesmo nesta categoria de adultos;
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <br />
+                    <div fxLayout="row" fxLayoutAlign="space-between center" class="py-24">
+                        <a mat-raised-button href="https://kids.youtube.com/">Sair</a>
+                        <a mat-raised-button class="mat-warn-bg mat-button" routerLink="login">Acessar</a>
+                    </div>
+                </div>
+            </div>
+        
+    
